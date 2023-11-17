@@ -15,7 +15,7 @@ const SignUp = ({ handleDisplay }) => {
         </p>
       }
     >
-      <div className="flex gap-24">
+      <div className="flex justify-between">
         <InputField bdColor={"primary"} label={"First Name"} />
         <InputField label={"Last Name"} />
       </div>
