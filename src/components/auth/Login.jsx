@@ -5,6 +5,17 @@ import ActionBtn from "../ui/ActionBtn";
 import { PropTypes } from "prop-types";
 
 const Login = ({ handleDisplay }) => {
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  function handleSubmit() {
+    const logs = {
+      email: email,
+      password: password,
+    };
+
+    console.log(logs);
+  }
   return (
     <FormWrapper
       headingText={"Welcome Back"}
@@ -15,9 +26,20 @@ const Login = ({ handleDisplay }) => {
         </p>
       }
     >
-      <InputField label={"Email"} />
-      <InputField label={"Password"} />
-      <ActionBtn actColor={"error"} weight={800} text={"LOG IN"} />
+      <InputField
+        handleInput={(e) => setEmail(e.target.value)}
+        label={"Email"}
+      />
+      <InputField
+        handleInput={(e) => setPassword(e.target.value)}
+        label={"Password"}
+      />
+      <ActionBtn
+        handleSubmit={handleSubmit}
+        actColor={"error"}
+        weight={800}
+        text={"LOG IN"}
+      />
     </FormWrapper>
   );
 };

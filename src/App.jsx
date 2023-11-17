@@ -9,7 +9,7 @@ import ActionBtn from "./components/ui/ActionBtn";
 function App() {
   const [display, setDisplay] = useState("sign up");
 
-  const handleDisplay = (params) => {
+  const handleDisplay = () => {
     if (display === "sign up") {
       setDisplay("log in");
     } else {
