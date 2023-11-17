@@ -2,14 +2,20 @@ import React from "react";
 import FormWrapper from "./FormWrapper";
 import InputField from "../ui/InputField";
 import ActionBtn from "../ui/ActionBtn";
+import { PropTypes } from "prop-types";
 
-const SignUp = () => {
+const SignUp = ({ handleDisplay }) => {
   return (
     <FormWrapper
       headingText={"Create Your Account"}
-      directionText={"Already Have an account? Log In"}
+      directionText={
+        <p className="text-center">
+          Already Have an account?{" "}
+          <button onClick={handleDisplay}>Log In</button>
+        </p>
+      }
     >
-      <div className="flex gap-8">
+      <div className="flex gap-24">
         <InputField bdColor={"primary"} label={"First Name"} />
         <InputField label={"Last Name"} />
       </div>
@@ -21,4 +27,7 @@ const SignUp = () => {
   );
 };
 
+SignUp.propTypes = {
+  handleDisplay: PropTypes.func,
+};
 export default SignUp;

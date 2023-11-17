@@ -7,28 +7,23 @@ import SignUp from "./components/auth/SignUp";
 import ActionBtn from "./components/ui/ActionBtn";
 
 function App() {
-  const [display, setDisplay] = useState("Login");
+  const [display, setDisplay] = useState("sign up");
 
-  function toggleDisplay(params) {
-    if (display === "Login") {
-      setDisplay("SignUp");
+  const handleDisplay = (params) => {
+    if (display === "sign up") {
+      setDisplay("log in");
     } else {
-      setDisplay("Login");
+      setDisplay("sign up");
     }
-  }
+  };
 
   return (
-    <section className="flex justify-center h-screen space-x-6 items-center flex-col lg:flex-row">
-      {display === "Login" ? <Login /> : <SignUp />}
-
-      <button className="mt-5" onClick={toggleDisplay}>
-        Toogle Forms
-      </button>
-      <ActionBtn
-        actColor={"primary"}
-        text={"Toggle Form"}
-        onClick={toggleDisplay}
-      />
+    <section className="flex justify-center h-screen space-x-6 items-center">
+      {display === "sign up" ? (
+        <SignUp handleDisplay={handleDisplay} />
+      ) : (
+        <Login handleDisplay={handleDisplay} />
+      )}
     </section>
   );
 }

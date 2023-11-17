@@ -9,7 +9,7 @@ const InputField = ({ label, bdColor }) => {
         id="outlined-basic"
         fullWidth={true}
         label={label}
-        variant="outlined"
+        variant="standard"
         color={bdColor}
       />
     </div>
